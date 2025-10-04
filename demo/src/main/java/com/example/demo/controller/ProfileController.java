@@ -21,10 +21,12 @@ public class ProfileController {
         User user = userRepository.findByEmail(email);
         if (user != null) {
             return new ProfileResponse(
+                    user.getId(),
                     user.getName(),
                     user.getEmail(),
                     user.getPhoneNumber(),
                     user.getAddress()
+
             );
         } else {
             throw new RuntimeException("User không tồn tại");
